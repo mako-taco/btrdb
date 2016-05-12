@@ -826,8 +826,8 @@ func QuasarServeHTTP(q *btrdb.Quasar, addr string) {
 	//mux.Get("/q/versions", http.HandlerFunc(curry(q, request_get_VERSIONS)))
 	mux.Get("/q/nearest/:uuid", http.HandlerFunc(curry(q, request_get_NEAREST)))
 	mux.Post("/q/bracket", http.HandlerFunc(curry(q, request_post_BRACKET)))
-	mux.Post("/data/add/:subkey", http.HandlerFunc(curry(q, request_post_INSERT)))
-	mux.Post("/data/legacyadd/:subkey", http.HandlerFunc(curry(q, request_post_LEGACYINSERT)))
+	mux.Post("/data/add", http.HandlerFunc(curry(q, request_post_INSERT)))
+	mux.Post("/data/legacyadd", http.HandlerFunc(curry(q, request_post_LEGACYINSERT)))
 	mux.Get("/status", http.HandlerFunc(curry(q, request_get_STATUS)))
 	//mux.Post("/q/:uuid/v", curry(q, p
 	log.Info("serving http on %v", addr)
